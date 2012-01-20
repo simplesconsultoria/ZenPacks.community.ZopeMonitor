@@ -1,0 +1,930 @@
+<?xml version="1.0"?>
+<objects>
+    <!-- ('', 'zport', 'dmd', 'Devices', 'Server', 'rrdTemplates', 'ZopeServer') -->
+    <object id='/zport/dmd/Devices/Server/rrdTemplates/ZopeServer' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+        <property id='zendoc' type='string'>
+            Monitors Zope Servers
+        </property>
+        <property type="text" id="description" mode="w" >
+            Monitors Zope Servers
+        </property>
+        <property type="string" id="targetPythonClass" mode="w" >
+            Products.ZenModel.Device
+        </property>
+        <tomanycont id='datasources'>
+            <object id='zodbactivity' module='ZenPacks.community.ZopeMonitor.datasources.ZopeDBActivityDataSource' class='ZopeDBActivityDataSource'>
+                <property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+                    ZopeDBActivityDataSourceMonitor
+                </property>
+                <property type="boolean" id="enabled" mode="w" >
+                    True
+                </property>
+                <property type="string" id="eventClass" mode="w" >
+                    /Status/Zope
+                </property>
+                <property type="int" id="severity" mode="w" >
+                    3
+                </property>
+                <property type="int" id="cycletime" mode="w" >
+                    300
+                </property>
+                <property type="string" id="hostname" mode="w" >
+                    ${dev/id}
+                </property>
+                <property type="string" id="ipAddress" mode="w" >
+                    ${dev/manageIp}
+                </property>
+                <property type="int" id="port" mode="w" >
+                    8080
+                </property>
+                <property type="boolean" id="useSsl" mode="w" >
+                    False
+                </property>
+                <property type="string" id="basicAuthUser" mode="w" >
+                    zenoss
+                </property>
+                <property type="int" id="timeout" mode="w" >
+                    60
+                </property>
+                <tomanycont id='datapoints'>
+                    <object id='total_connections' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='total_load_count' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='total_store_count' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='zopecache' module='ZenPacks.community.ZopeMonitor.datasources.ZopeCacheDataSource' class='ZopeCacheDataSource'>
+                <property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+                    ZopeCacheDataSourceMonitor
+                </property>
+                <property type="boolean" id="enabled" mode="w" >
+                    True
+                </property>
+                <property type="string" id="eventClass" mode="w" >
+                    /Status/Zope
+                </property>
+                <property type="int" id="severity" mode="w" >
+                    3
+                </property>
+                <property type="int" id="cycletime" mode="w" >
+                    300
+                </property>
+                <property type="string" id="hostname" mode="w" >
+                    ${dev/id}
+                </property>
+                <property type="string" id="ipAddress" mode="w" >
+                    ${dev/manageIp}
+                </property>
+                <property type="int" id="port" mode="w" >
+                    8080
+                </property>
+                <property type="boolean" id="useSsl" mode="w" >
+                    False
+                </property>
+                <property type="string" id="basicAuthUser" mode="w" >
+                    zenoss
+                </property>
+                <property type="int" id="timeout" mode="w" >
+                    60
+                </property>
+                <tomanycont id='datapoints'>
+                    <object id='target_number' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='total_objs' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='total_objs_memory' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='zopememory' module='ZenPacks.community.ZopeMonitor.datasources.ZopeMemoryDataSource' class='ZopeMemoryDataSource'>
+                <property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+                    ZopeMemoryDataSourceMonitor
+                </property>
+                <property type="boolean" id="enabled" mode="w" >
+                    True
+                </property>
+                <property type="string" id="eventClass" mode="w" >
+                    /Status/Zope
+                </property>
+                <property type="int" id="severity" mode="w" >
+                    3
+                </property>
+                <property type="int" id="cycletime" mode="w" >
+                    300
+                </property>
+                <property type="string" id="hostname" mode="w" >
+                    ${dev/id}
+                </property>
+                <property type="string" id="ipAddress" mode="w" >
+                    ${dev/manageIp}
+                </property>
+                <property type="int" id="port" mode="w" >
+                    8080
+                </property>
+                <property type="boolean" id="useSsl" mode="w" >
+                    False
+                </property>
+                <property type="string" id="basicAuthUser" mode="w" >
+                    zenoss
+                </property>
+                <property type="int" id="timeout" mode="w" >
+                    60
+                </property>
+                <tomanycont id='datapoints'>
+                    <object id='VmData' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmExe' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmHWM' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmLck' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmLib' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmPTE' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmPeak' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmRSS' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmSize' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='VmStk' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='zopethreads' module='ZenPacks.community.ZopeMonitor.datasources.ZopeThreadsDataSource' class='ZopeThreadsDataSource'>
+                <property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+                    ZopeThreadsDataSourceMonitor
+                </property>
+                <property type="boolean" id="enabled" mode="w" >
+                    True
+                </property>
+                <property type="string" id="eventClass" mode="w" >
+                    /Status/Zope
+                </property>
+                <property type="int" id="severity" mode="w" >
+                    3
+                </property>
+                <property type="int" id="cycletime" mode="w" >
+                    300
+                </property>
+                <property type="string" id="hostname" mode="w" >
+                    ${dev/id}
+                </property>
+                <property type="string" id="ipAddress" mode="w" >
+                    ${dev/manageIp}
+                </property>
+                <property type="int" id="port" mode="w" >
+                    8080
+                </property>
+                <property type="boolean" id="useSsl" mode="w" >
+                    False
+                </property>
+                <property type="string" id="basicAuthUser" mode="w" >
+                    zenoss
+                </property>
+                <property type="int" id="timeout" mode="w" >
+                    60
+                </property>
+                <tomanycont id='datapoints'>
+                    <object id='free_threads' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                    <object id='total_threads' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+                        <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+                            GAUGE
+                        </property>
+                        <property type="boolean" id="isrow" mode="w" >
+                            True
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+        </tomanycont>
+        <tomanycont id='graphDefs'>
+            <object id='ZODB Activity' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+                <property type="int" id="height" mode="w" >
+                    100
+                </property>
+                <property type="int" id="width" mode="w" >
+                    500
+                </property>
+                <property type="boolean" id="log" mode="w" >
+                    False
+                </property>
+                <property type="boolean" id="base" mode="w" >
+                    False
+                </property>
+                <property type="int" id="miny" mode="w" >
+                    -1
+                </property>
+                <property type="int" id="maxy" mode="w" >
+                    -1
+                </property>
+                <property type="boolean" id="hasSummary" mode="w" >
+                    True
+                </property>
+                <property type="long" id="sequence" mode="w" >
+                    2
+                </property>
+                <tomanycont id='graphPoints'>
+                    <object id='Total connections' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zodbactivity_total_connections
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='Total load count' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            1
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zodbactivity_total_load_count
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='Total store count' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            2
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zodbactivity_total_store_count
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='Zope Cache' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+                <property type="int" id="height" mode="w" >
+                    100
+                </property>
+                <property type="int" id="width" mode="w" >
+                    500
+                </property>
+                <property type="boolean" id="log" mode="w" >
+                    False
+                </property>
+                <property type="boolean" id="base" mode="w" >
+                    False
+                </property>
+                <property type="int" id="miny" mode="w" >
+                    -1
+                </property>
+                <property type="int" id="maxy" mode="w" >
+                    -1
+                </property>
+                <property type="boolean" id="hasSummary" mode="w" >
+                    True
+                </property>
+                <property type="long" id="sequence" mode="w" >
+                    1
+                </property>
+                <tomanycont id='graphPoints'>
+                    <object id='Target number' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            2
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopecache_target_number
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='Total objs' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            1
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopecache_total_objs
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='Total objs memory' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopecache_total_objs_memory
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='Zope Memory' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+                <property type="int" id="height" mode="w" >
+                    100
+                </property>
+                <property type="int" id="width" mode="w" >
+                    500
+                </property>
+                <property type="boolean" id="log" mode="w" >
+                    False
+                </property>
+                <property type="boolean" id="base" mode="w" >
+                    False
+                </property>
+                <property type="int" id="miny" mode="w" >
+                    -1
+                </property>
+                <property type="int" id="maxy" mode="w" >
+                    -1
+                </property>
+                <property type="boolean" id="hasSummary" mode="w" >
+                    True
+                </property>
+                <property type="long" id="sequence" mode="w" >
+                    3
+                </property>
+                <tomanycont id='graphPoints'>
+                    <object id='VmData' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            4
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmData
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmExe' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            1
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmExe
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmHWM' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmHWM
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmLck' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            6
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmLck
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmLib' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            8
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmLib
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmPTE' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            7
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmPTE
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmPeak' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            3
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmPeak
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmRSS' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            9
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmRSS
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmSize' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            5
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmSize
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='VmStk' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            2
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopememory_VmStk
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+            <object id='Zope Threads' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+                <property type="int" id="height" mode="w" >
+                    100
+                </property>
+                <property type="int" id="width" mode="w" >
+                    500
+                </property>
+                <property type="boolean" id="log" mode="w" >
+                    False
+                </property>
+                <property type="boolean" id="base" mode="w" >
+                    False
+                </property>
+                <property type="int" id="miny" mode="w" >
+                    -1
+                </property>
+                <property type="int" id="maxy" mode="w" >
+                    -1
+                </property>
+                <property type="boolean" id="hasSummary" mode="w" >
+                    True
+                </property>
+                <tomanycont id='graphPoints'>
+                    <object id='Free threads' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property type="long" id="sequence" mode="w" >
+                            1
+                        </property>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopethreads_free_threads
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                    <object id='Total threads' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+                        <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+                            LINE
+                        </property>
+                        <property type="long" id="lineWidth" mode="w" >
+                            1
+                        </property>
+                        <property type="boolean" id="stacked" mode="w" >
+                            False
+                        </property>
+                        <property type="string" id="format" mode="w" >
+                            %5.2lf%s
+                        </property>
+                        <property type="string" id="legend" mode="w" >
+                            ${graphPoint/id}
+                        </property>
+                        <property type="long" id="limit" mode="w" >
+                            -1
+                        </property>
+                        <property type="string" id="dpName" mode="w" >
+                            zopethreads_total_threads
+                        </property>
+                        <property type="string" id="cFunc" mode="w" >
+                            AVERAGE
+                        </property>
+                    </object>
+                </tomanycont>
+            </object>
+        </tomanycont>
+    </object>
+</objects>

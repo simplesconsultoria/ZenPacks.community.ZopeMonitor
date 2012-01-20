@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <adapter factory=".info.ZopeMonitorDataSourceInfo"
+             for=".datasources.ZopeCacheDataSource.ZopeCacheDataSource"
+             provides=".interfaces.IZopeMonitorDataSourceInfo"
+            />
+
+    <adapter factory=".info.ZopeMonitorDataSourceInfo"
+             for=".datasources.ZopeDBActivityDataSource.ZopeDBActivityDataSource"
+             provides=".interfaces.IZopeMonitorDataSourceInfo"
+            />
+
+    <adapter factory=".info.ZopeMonitorDataSourceInfo"
+             for=".datasources.ZopeMemoryDataSource.ZopeMemoryDataSource"
+             provides=".interfaces.IZopeMonitorDataSourceInfo"
+            />
+
+    <adapter factory=".info.ZopeMonitorDataSourceInfo"
+             for=".datasources.ZopeThreadsDataSource.ZopeThreadsDataSource"
+             provides=".interfaces.IZopeMonitorDataSourceInfo"
+            />
+
+</configure>
